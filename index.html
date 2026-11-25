@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>商单交付台 · Creator Desk</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+<header class="topbar shell">
+  <div class="brand"><div class="brand-mark"><span></span><span></span><span></span></div><div><strong>商单交付台</strong><small>CREATOR DESK / NIGHT MODE</small></div></div>
+  <div class="top-actions"><span class="live-dot"><i></i>本地工作区</span><button class="ghost-btn" id="resetBtn">重置演示</button><button class="primary-btn" id="exportBtn">导出交付包 <b>↗</b></button></div>
+</header>
+<main class="shell">
+  <section class="hero-grid">
+    <div class="hero-copy"><span class="eyebrow">CAMPAIGN CONTROL ROOM</span><h1>把一单商单，<em>交付得漂亮。</em></h1><p>从报价、脚本到封面与回填，一屏看清今晚还差什么。</p><div class="hero-chips"><span>✓ 中文工作流</span><span>⌁ 可直接演示</span><span>↗ 一键导出</span></div></div>
+    <div class="hero-orbit"><div class="orbit-ring ring-a"></div><div class="orbit-ring ring-b"></div><div class="orbit-core"><span>本单净得</span><strong id="heroProfit">¥400</strong><small>已扣返点</small></div><div class="orbit-card card-a">视频<br><b>90 秒</b></div><div class="orbit-card card-b">交付进度<br><b id="heroProgress">3 / 8</b></div></div>
+  </section>
+  <section class="dashboard-grid">
+    <aside class="panel brief-panel"><div class="panel-head"><div><span class="eyebrow">01 / BRIEF</span><h2>商单信息</h2></div><span class="status-pill">LIVE</span></div>
+      <label>项目名称<input id="projectName" value="午夜便利店 · 夜班实录"></label>
+      <div class="two-col"><label>平台<select id="platform"><option>B站 + X</option><option>仅 B 站</option><option>仅 X</option></select></label><label>参与次数<select id="round"><option value="1">第 1 次</option><option value="2" selected>第 2 次</option><option value="3">第 3 次</option></select></label></div>
+      <div class="two-col"><label>粉丝数<input id="followers" type="number" value="5000"></label><label>基础报价<input id="quote" type="number" value="500"></label></div>
+      <div class="quote-box"><span>预计结算</span><strong id="netProfit">¥400</strong><small id="rebateText">返点 20% · ¥100</small></div>
+      <label>截止时间<input id="deadline" type="datetime-local" value="2026-12-01T23:59"></label>
+    </aside>
+    <section class="panel progress-panel"><div class="panel-head"><div><span class="eyebrow">02 / DELIVERY</span><h2>交付进度</h2></div><strong class="big-progress" id="progressText">3 / 8</strong></div><div class="progress-track"><i id="progressBar"></i></div><p class="muted" id="progressHint">还差 5 项，建议先完成视频和封面。</p><div class="task-list" id="taskList"></div><div class="task-footer"><span><i class="pulse"></i>当前会话进度</span><span id="taskCount">3 项已完成</span></div></section>
+    <aside class="panel preview-panel"><div class="panel-head"><div><span class="eyebrow">03 / PREVIEW</span><h2>视频包装</h2></div><button class="icon-btn" id="shuffleBtn">✦</button></div><div class="video-preview"><div class="preview-noise"></div><span class="preview-tag">NIGHT SHIFT</span><div class="preview-title" id="previewTitle">给我 3 分钟<br><em>能赚到 ¥240 吗？</em></div><div class="preview-store">◒</div><div class="preview-caption">午夜便利店 · 夜班经营实录</div></div><div class="title-row"><div><span class="muted">推荐标题</span><p id="titleOutput">我做了个午夜便利店小游戏，给你 3 分钟，能赚到 240 元吗？</p></div><button class="copy-btn" id="copyTitle">复制</button></div></aside>
+  </section>
+  <section class="lower-grid"><div class="panel timeline-panel"><div class="panel-head"><div><span class="eyebrow">04 / VIDEO PLAN</span><h2>90 秒视频时间轴</h2></div><span class="time-badge">横屏 · 16:9</span></div><div class="timeline" id="timeline"></div><div class="timeline-note"><span>建议开场 3 秒内出现冲突或目标</span><b>总时长 01:30</b></div></div>
+    <div class="panel analytics-panel"><div class="panel-head"><div><span class="eyebrow">05 / MONEY</span><h2>收益拆解</h2></div><span class="spark">↗ 这单可交付</span></div><div class="money-chart"><div class="bar base" style="height:92%"><span>报价</span><b>¥500</b></div><div class="bar rebate" style="height:20%"><span>返点</span><b>¥100</b></div><div class="bar net" style="height:74%"><span>净得</span><b>¥400</b></div></div><div class="metric-row"><div><span>基础报价</span><strong id="metricQuote">¥500</strong></div><div><span>返点比例</span><strong id="metricRate">20%</strong></div><div><span>预计到账</span><strong class="green" id="metricNet">¥400</strong></div></div></div></section>
+  <section class="workbench-grid">
+    <div class="panel simulator-panel"><div class="panel-head"><div><span class="eyebrow">06 / LIVE FLOW</span><h2>交付流程模拟器</h2></div><span class="flow-status" id="flowStatus">准备开始</span></div>
+      <div class="flow-track" id="flowTrack"></div>
+      <div class="flow-detail"><div class="flow-icon" id="flowIcon">◌</div><div><strong id="flowTitle">先确认商单需求</strong><p id="flowDescription">确认平台、截止时间和交付物，避免后面返工。</p></div><button class="primary-btn" id="nextFlow">推进下一步 <b>→</b></button></div>
+      <div class="flow-actions"><button class="ghost-btn" id="blockFlow">标记为阻塞</button><button class="ghost-btn" id="autoFlow">自动跑一遍流程</button><span id="flowTimer">预计还需 38 分钟</span></div>
+    </div>
+    <div class="panel copy-panel"><div class="panel-head"><div><span class="eyebrow">07 / COPY LAB</span><h2>内容生成器</h2></div><span class="spark">本地模板</span></div>
+      <div class="copy-controls"><label>发布平台<select id="copyPlatform"><option value="bilibili">B 站简介</option><option value="x">X 帖子</option><option value="message">群内招募</option></select></label><label>语气<select id="copyTone"><option value="casual">轻松口吻</option><option value="sharp">直接一点</option><option value="story">故事感</option></select></label></div>
+      <div class="copy-output" id="copyOutput">做了个《午夜便利店》网页小游戏。给你 3 分钟，能把营业额做到 240 元吗？现在打开就能玩，欢迎来试试。</div><div class="copy-bottom"><span id="copyLength">39 字</span><button class="copy-btn" id="generateCopy">换一版文案 ✦</button><button class="copy-btn" id="copyOutputBtn">复制</button></div>
+    </div>
+  </section>
+  <section class="insight-grid"><div class="panel radar-panel"><div class="panel-head"><div><span class="eyebrow">08 / RISK RADAR</span><h2>交付风险雷达</h2></div><span class="risk-score" id="riskScore">低风险</span></div><div class="risk-list" id="riskList"></div></div><div class="panel package-panel"><div class="panel-head"><div><span class="eyebrow">09 / PACKAGE</span><h2>文件清单</h2></div><span class="package-size" id="packageSize">4 项</span></div><div class="package-list" id="packageList"></div><button class="outline-wide" id="addFile">+ 添加交付文件</button></div><div class="panel calendar-panel"><div class="panel-head"><div><span class="eyebrow">10 / SCHEDULE</span><h2>截止时间倒计时</h2></div><button class="icon-btn" id="editDeadline">✎</button></div><div class="countdown" id="countdown">06 <small>天</small> 14 <small>时</small> 32 <small>分</small></div><p class="muted">建议今天完成视频粗剪和封面，明天再做发布检查。</p><div class="schedule-line"><span></span><b>今天</b><b>发布日</b></div></div></section>
+  <section class="export-strip panel"><div><span class="eyebrow">READY TO SHIP</span><h2>交付包已准备好</h2><p>导出 JSON，包含标题、发布文案、截止时间和文件清单。</p></div><div class="export-files"><span>▣ cover.jpg</span><span>▤ title.txt</span><span>☷ checklist.json</span></div><button class="primary-btn large" id="exportBtnBottom">生成交付包 <b>↗</b></button></section>
+</main><div class="toast" id="toast"></div><script src="app.js"></script>
+</body></html>
